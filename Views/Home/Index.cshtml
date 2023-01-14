@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Паспортный стол</h1>
+    <p class="lead">Главная страница паспортного стола студента группы ПРИ-120 Годунова Е.А.</p>
+    @if (ViewBag.IsAdmin) 
+    {
+        <p>
+            @Html.ActionLink("Паспорта", "Index", "Passports", null, new { @class="btn btn-primary btn-lg" })
+            @Html.ActionLink("Регистрации", "Index", "Registrations", null, new { @class="btn btn-primary btn-lg" })
+            @Html.ActionLink("СНИЛСы", "Index", "SNILS", null, new { @class="btn btn-primary btn-lg" })
+            @Html.ActionLink("Водительские права", "Index", "DriversLicenses", null, new { @class="btn btn-primary btn-lg" })
+            @Html.ActionLink("Свидетельства о рождении", "Index", "BirthCertificates", null, new { @class="btn btn-primary btn-lg" })
+            @Html.ActionLink("Все заявки", "Index", "Orders", null, new { @class="btn btn-primary btn-lg" })
+        </p>
+    }
+
+</div>
+

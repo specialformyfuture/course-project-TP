@@ -1,0 +1,67 @@
+﻿@model Course_Project_TP_6.Models.DriversLicense
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Водительские права</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            Дата выдачи
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfIssue)
+        </dd>
+
+        <dt>
+            Дата окончания срока действия
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpiringDate)
+        </dd>
+
+        <dt>
+            Город выдачи
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CityOfIssue)
+        </dd>
+
+        <dt>
+            Номер
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+
+        <dt>
+            Категория
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.Name)
+        </dd>
+
+        <dt>
+            Имя 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Users.UserName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DriversLicense_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

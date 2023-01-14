@@ -1,0 +1,66 @@
+﻿@model Course_Project_TP_6.Models.BirthCertificate
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Свидетельство о рождении</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Дата выдачи
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfIssue)
+        </dd>
+
+        <dt>
+            Кем выдан
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IssuedBy)
+        </dd>
+
+        <dt>
+            ФИО матери
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MothersFIO)
+        </dd>
+
+        <dt>
+            ФИО отца
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FathersFIO)
+        </dd>
+
+        <dt>
+            Номер
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+
+        <dt>
+            Имя
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Users.UserName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BirthCertificate_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

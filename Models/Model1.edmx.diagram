@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="960e123094814e198779a1675ca51863" Name="Diagram1">
+        <EntityTypeShape EntityType="passportofficeModel.BirthCertificate" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportofficeModel.Category" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportofficeModel.DriversLicense" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportofficeModel.Gender" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportofficeModel.Orders" Width="1.5" PointX="8.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportofficeModel.OrderStatus" Width="1.5" PointX="6" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportofficeModel.OrderType" Width="1.5" PointX="6" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportofficeModel.Passport" Width="1.5" PointX="5.25" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportofficeModel.Registration" Width="1.5" PointX="7.5" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportofficeModel.Role" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportofficeModel.SNILS" Width="1.5" PointX="5.25" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportofficeModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="passportofficeModel.Users" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <AssociationConnector Association="passportofficeModel.FK__BirthCert__User___6E01572D" ManuallyRouted="false" />
+        <AssociationConnector Association="passportofficeModel.FK__DriversLi__Categ__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="passportofficeModel.FK__DriversLi__User___6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="passportofficeModel.FK__Users__Gender_Id__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="passportofficeModel.FK__Orders__OrderTyp__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="passportofficeModel.FK__Orders__Status_I__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="passportofficeModel.FK__Orders__User_Id__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="passportofficeModel.FK__Passport__User_I__6EF57B66" ManuallyRouted="false" />
+        <AssociationConnector Association="passportofficeModel.FK__Registrat__Passp__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="passportofficeModel.FK__Users__Role_Id__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="passportofficeModel.FK__SNILS__User_Id__6D0D32F4" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

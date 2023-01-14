@@ -1,0 +1,58 @@
+﻿@model Course_Project_TP_6.Models.Orders
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Заявки</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Имя заявки
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderName)
+        </dd>
+
+        <dt>
+            Дата создания
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+
+        <dt>
+            Тип заявки
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderType.Name)
+        </dd>
+
+        <dt>
+            Статус
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderStatus.Name)
+        </dd>
+
+        <dt>
+            Имя
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Users.UserName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Order_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

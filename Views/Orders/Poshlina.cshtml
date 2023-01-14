@@ -1,0 +1,52 @@
+@{
+    ViewBag.Title = "Poshlina";
+}
+
+<h2>Оплата Госпошлины</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group hiden1">
+            @Html.Label("CardNumber", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Editor("CardNumber", new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group hiden1">
+            @Html.Label("ExpirationDate", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Editor("ExpirationDate", new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <script>
+            $(() => {
+                $("#ExpirationDate").datepicker();
+            });
+        </script>
+        <div class="form-group hiden1">
+            @Html.Label("CVC", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Editor("CVC", new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group hiden1">
+            @Html.Label("CardName", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Editor("CardName", new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Оплатить" class="btn btn-default" />
+            </div>
+        </div>
+
+    </div>
+}

@@ -1,0 +1,72 @@
+﻿@model Course_Project_TP_6.Models.BirthCertificate
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BirthCertificate</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Дата выдачи
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfIssue)
+        </dd>
+
+        <dt>
+           Кем выдан
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IssuedBy)
+        </dd>
+
+        <dt>
+            ФИО матери
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MothersFIO)
+        </dd>
+
+        <dt>
+           ФИО отца
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FathersFIO)
+        </dd>
+
+        <dt>
+            Номер
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+
+        <dt>
+            Имя
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Users.UserName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

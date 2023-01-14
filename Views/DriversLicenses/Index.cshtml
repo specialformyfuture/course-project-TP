@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Course_Project_TP_6.Models.DriversLicense>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Водительские права</h2>
+
+<p>
+    @Html.ActionLink("Добавить новые водительские права", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Дата выдачи
+        </th>
+        <th>
+            Дата окончания срока действия
+        </th>
+        <th>
+            Город выдачи
+        </th>
+        <th>
+            Номер
+        </th>
+        <th>
+            Категория
+        </th>
+        <th>
+            Имя
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfIssue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpiringDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CityOfIssue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Users.UserName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DriversLicense_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DriversLicense_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DriversLicense_Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,269 @@
+﻿
+@model Course_Project_TP_6.Models.Users
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Профиль</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<h2>Информация</h2>
+<table class="table">
+    <tr>
+        <th>
+            Имя
+        </th>
+        <th>
+            Фамилия
+        </th>
+        <th>
+            Отчество
+        </th>
+        <th>
+           Город
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Password)*@
+        </th>
+        <th>
+            Телефон
+        </th>
+        <th>
+            Дата рождения
+        </th>
+        <th>
+           Пол
+        </th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.UserLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.UserPatronymic)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.CityOfBirth)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Email)
+        </td>
+        <td>
+            @*@Html.DisplayFor(model => model.Password)*@
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.UserDateOfBirth)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Gender.Name)
+        </td>
+    </tr>
+</table>
+
+@if (Model.Passport.Count != 0)
+{
+
+    var passport = Model.Passport.First();
+
+    <h2>Паспорт</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Номер
+            </th>
+            <th>
+                Кем выдан
+            </th>
+            <th>
+                Дата выдачи
+            </th>
+        </tr>
+
+        <tr>
+            <td>
+                @passport.Number
+            </td>
+            <td>
+                @passport.IssuedBy
+            </td>
+            <td>
+                @passport.DateOfIssue.ToString("dd.MM.yyyy")
+            </td>
+        </tr>
+    </table>
+
+    if (passport.Registration.Count != 0)
+    {
+
+        var registration = passport.Registration.First();
+
+        <h2>Регистрация</h2>
+        <table class="table">
+            <tr>
+                <th>
+                    Регион
+                </th> 
+                <th>
+                    Город
+                </th>
+                <th>
+                    Район
+                </th>
+                <th>
+                    Улица
+                </th>
+                <th>
+                    Дом
+                </th>
+                <th>
+                    Квартира
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    @registration.Region
+                </td>
+                <td>
+                    @registration.City
+                </td>
+                <td>
+                    @registration.District
+                </td>
+                <td>
+                    @registration.Street
+                </td>
+                <td>
+                    @registration.Building
+                </td>
+                <td>
+                    @registration.Apartament
+                </td>
+            </tr>
+        </table>
+    }
+}
+
+@if (Model.SNILS.Count != 0) 
+{
+
+    var snils = @Model.SNILS.First();
+
+    <h2>СНИЛС</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Номер
+            </th>
+        </tr>
+
+        <tr>
+            <td>
+                @snils.Number
+            </td>
+        </tr>
+    </table>
+}
+
+@if (Model.BirthCertificate.Count != 0) 
+{
+
+    var certificate = Model.BirthCertificate.First();
+
+    <h2>Свидетельство о рождении</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Номер
+            </th>
+            <th>
+                Дата выдачи
+            </th>
+            <th>
+                Кем выдан
+            </th>
+            <th>
+                ФИО Матери
+            </th>
+            <th>
+                ФИО Отца
+            </th>
+        </tr>
+
+        <tr>
+            <td>
+                @certificate.Number
+            </td>
+            <td>
+                @certificate.DateOfIssue.ToString("dd.MM.yyyy")
+            </td>
+            <td>
+                @certificate.IssuedBy
+            </td>
+            <td>
+                @certificate.MothersFIO
+            </td>
+            <td>
+                @certificate.FathersFIO
+            </td>
+        </tr>
+    </table>
+}
+
+@if (Model.DriversLicense.Count != 0)
+{
+    var driv_lic = Model.DriversLicense.First();
+
+    <h2>Водительское удостоверение</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Номер
+            </th>
+            <th>
+                Дата выдачи
+            </th>
+            <th>
+                Срок действия
+            </th>
+            <th>
+                Город выдачи
+            </th>
+            <th>
+                Категория
+            </th>
+        </tr>
+
+        <tr>
+            <td>
+                @driv_lic.Number
+            </td>
+            <td>
+                @driv_lic.DateOfIssue.ToString("dd.MM.yyyy")
+            </td>
+            <td>
+                @driv_lic.ExpiringDate.ToString("dd.MM.yyyy")
+            </td>
+            <td>
+                @driv_lic.CityOfIssue
+            </td>
+            <td>
+                @driv_lic.Category.Name
+            </td>
+        </tr>
+    </table>
+}

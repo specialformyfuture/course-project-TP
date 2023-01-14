@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - приложение ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        $.fn.datepicker.defaults.format = "dd.mm.yyyy";
+    </script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Домашняя страница", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                    @{
+                        ViewBag.IsAdmin = false;
+                    }
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+
+                        if (!ViewBag.IsAdmin)
+                        {
+                            <li>@Html.ActionLink("Профиль", "Index", "Users")</li>
+                            <li>@Html.ActionLink("Мои заявки", "Index", "Orders")</li>
+                            <li>@Html.ActionLink("Выход", "Logout", "Login")</li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Профиль", "Index", "Users")</li>
+                            <li>@Html.ActionLink("Выход", "Logout", "Login")</li>
+                        }
+
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Войти", "Login", "Login")</li>
+                        <li>@Html.ActionLink("Регистрация", "Register", "Login")</li>
+                    }
+                </ul>
+               
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - мое приложение ASP.NET</p>
+        </footer>
+    </div>
+
+</body>
+</html>

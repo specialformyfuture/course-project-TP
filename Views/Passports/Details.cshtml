@@ -1,0 +1,58 @@
+﻿@model Course_Project_TP_6.Models.Passport
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Паспорт</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Кем выдан
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IssuedBy)
+        </dd>
+
+        <dt>
+           Дата выдачи
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfIssue)
+        </dd>
+
+        <dt>
+            Код подразделения
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartamentCode)
+        </dd>
+
+        <dt>
+            Номер паспорта
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+
+        <dt>
+            Имя 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Users.UserName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Passport_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

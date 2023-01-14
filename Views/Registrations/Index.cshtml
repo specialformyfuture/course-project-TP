@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Course_Project_TP_6.Models.Registration>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Регистрации</h2>
+
+<p>
+    @Html.ActionLink("Создать новую регистрацию", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Дата регистрации
+        </th>
+        <th>
+           Регион
+        </th>
+        <th>
+            Город
+        </th>
+        <th>
+            Район
+        </th>
+        <th>
+            Улица
+        </th>
+        <th>
+            Дом
+        </th>
+        <th>
+            Квартира
+        </th>
+        <th>
+            Номер паспорта
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegistrationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Region)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.District)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Street)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Building)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apartament)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Passport.Number)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Registration_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Registration_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Registration_Id })
+        </td>
+    </tr>
+}
+
+</table>

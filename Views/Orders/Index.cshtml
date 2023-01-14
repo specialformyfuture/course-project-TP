@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Course_Project_TP_6.Models.Orders>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Заявки</h2>
+
+<p>
+    @Html.ActionLink("Создать новую заявку", "Create")
+</p>
+<table class="table">
+    <tr>
+        @if (ViewBag.IsAdmin) {
+            <th>
+                @Html.DisplayNameFor(model => model.User_Id)
+            </th>
+        }
+        <th>
+            Название заявки
+        </th>
+        <th>
+           Дата создания
+        </th>
+        <th>
+            Тип заявки
+        </th>
+        <th>
+            Статус заявки
+        </th>
+        <th>
+            ФИО пользователя
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+    
+        @if (ViewBag.IsAdmin) {
+            <td>
+                @Html.DisplayFor(modelItem => item.User_Id)
+            </td>
+        }
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderType.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderStatus.Name)
+        </td>
+        <td>
+            @item.Users.UserName
+            @item.Users.UserLastName
+            @item.Users.UserPatronymic
+        </td>
+
+        @if (ViewBag.IsAdmin) {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Order_Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Order_Id }) |
+                @Html.ActionLink("User's Profile", "Details", "Users", new { id=item.User_Id }, null) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Order_Id })
+            </td>
+        } 
+        else 
+        {
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id=item.Order_Id })
+            </td>
+        }
+    </tr>
+}
+
+</table>
